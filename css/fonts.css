@@ -1,0 +1,34 @@
+@font-face {
+    font-family: 'Porter';
+    src: url('../assets/fonts/porter/porter.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../assets/fonts/raleway/raleway.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../assets/fonts/raleway/raleway-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../assets/fonts/open-sans/opensans.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../assets/fonts/open-sans/opensans-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
