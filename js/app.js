@@ -1,7 +1,7 @@
-let gameData = []; // To hold data from the JSON
+let gameData = [];
 let currentImageIndex = null;
 let score = 0;
-const submittedAnswers = []; // To store user answers and results
+const submittedAnswers = [];
 
 async function fetchGameData() {
     try {
@@ -10,7 +10,7 @@ async function fetchGameData() {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
-        gameData = [...data.automotive]; // Ensure a copy of the data is used
+        gameData = [...data.automotive];
         startGame();
     } catch (error) {
         console.error("Error loading game data:", error);
