@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #beef00;
+  overflow-x: hidden;
+  padding: 2rem;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+header h1 {
+  font-family: "Porter", sans-serif;
+  color: #657a00;
+  font-size: 3rem;
+}
+
+nav {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+nav a {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  background-color: #ff0028;
+  color: #1400cc;
+  padding: 10px 15px;
+  border-radius: 1rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+  background-color: #e60024;
+  transform: scale(1.05);
+}
+
+.instructions-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  text-align: left;
+  color: #1400cc;
+}
+
+.instructions-container ol {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-left: 1.5rem;
+}
+
+.instructions-container ol li {
+  margin-bottom: 1rem;
+}
+
+footer {
+  margin-top: 2rem;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.2rem;
+  color: #1400cc;
+  text-align: center;
+}

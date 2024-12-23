@@ -1,84 +1,82 @@
 let gameData = []; // To hold data from the JSON
-let currentImageIndex = 0;
+let currentImageIndex = null;
 let score = 0;
 const submittedAnswers = []; // To store user answers and results
 
-// Fetch game data from data.json
 async function fetchGameData() {
     try {
-        const response = await fetch("../jsdata/data.json"); // Path to JSON file
+        const response = await fetch("../jsdata/data.json");
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
-        console.log("Fetched Data:", data); // Debugging step
-        gameData = data.automotive; // Access the "automotive" category
-        console.log("Game Data:", gameData); // Debugging step
+        gameData = [...data.automotive]; // Ensure a copy of the data is used
         startGame();
     } catch (error) {
         console.error("Error loading game data:", error);
     }
 }
 
-// Start the game
 function startGame() {
     loadRandomImage();
     updateScore();
 }
 
-// Load a random image
 function loadRandomImage() {
-    if (!gameData || gameData.length === 0) {
-        console.error("Game data is empty or not loaded.");
-        return;
-    }
-    currentImageIndex = Math.floor(Math.random() * gameData.length);
-    console.log("Current Image Index:", currentImageIndex); // Debugging step
-    const currentData = gameData[currentImageIndex];
-    if (!currentData || !currentData.image) {
-        console.error("Invalid data at index:", currentImageIndex, currentData);
+    if (gameData.length === 0) {
+        alert("Game Over! You've completed all the logos.");
         return;
     }
 
-    // Set the image source
-    const imgElement = document.getElementById("game-image");
-    imgElement.src = currentData.image;
+    currentImageIndex = Math.floor(Math.random() * gameData.length);
+    const currentData = gameData[currentImageIndex];
+
+    if (currentData) {
+        const imgElement = document.getElementById("game-image");
+        imgElement.src = currentData.image;
+    } else {
+        console.error("Invalid data at index:", currentImageIndex, currentData);
+    }
 }
 
-// Handle form submission
 function handleSubmit(event) {
     event.preventDefault();
-    const userInput = document.getElementById("user-input").value.trim().toLowerCase();
-    const correctAnswer = gameData[currentImageIndex].answer;
 
-    // Save answer and the result
+    if (currentImageIndex === null || gameData.length === 0) return;
+
+    const userInput = document.getElementById("user-input").value.trim().toLowerCase();
+    const currentData = gameData[currentImageIndex];
+    const correctAnswer = currentData.answer;
+
     submittedAnswers.push({
-        image: gameData[currentImageIndex].image,
+        image: currentData.image,
         submitted: userInput,
         correct: correctAnswer,
     });
 
-    // Check answer
+    const feedbackElement = document.getElementById("feedback");
+
     if (userInput === correctAnswer) {
         score++;
-        alert("Correct!");
+        feedbackElement.textContent = "Correct! Great job!";
+        feedbackElement.style.color = "green";
     } else {
-        alert(`Wrong! The correct answer is: ${correctAnswer}`);
+        feedbackElement.textContent = `Wrong! The correct answer is: ${correctAnswer}`;
+        feedbackElement.style.color = "red";
     }
 
-    // Update score and load a new image
+    gameData.splice(currentImageIndex, 1);
+    currentImageIndex = null;
     updateScore();
     loadRandomImage();
-    document.getElementById("user-input").value = ""; // Clear the input field
+    document.getElementById("user-input").value = "";
 }
 
-// Update score display
 function updateScore() {
     const scoreElement = document.getElementById("score-counter");
     scoreElement.textContent = `Score: ${score}`;
 }
 
-// Generate results on results page
 function showResults() {
     const resultsContainer = document.getElementById("results-container");
     submittedAnswers.forEach(({ image, submitted, correct }) => {
@@ -95,7 +93,6 @@ function showResults() {
     });
 }
 
-// Initialize results page
 if (document.getElementById("game-page")) {
     fetchGameData();
     document.getElementById("answer-form").addEventListener("submit", handleSubmit);
