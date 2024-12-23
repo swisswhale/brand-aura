@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/game.css" />
-  </head>
-  <body>
-    <h1>Game Page</h1>
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="instructions.html">Instructions</a>
-      <a href="results.html">View Results</a>
-    </nav>
-    <img src="../assets/images/logo.png" alt="Game Logo" />
-    <script src="../js/app.js"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Game</title>
+        <link rel="stylesheet" href="../css/style.css" />
+        <link rel="stylesheet" href="../css/game.css" />
+        <link rel="stylesheet" href="../css/fonts.css">
+    </head>
+    <body id="game-page">
+        <h1>Let's Play BRANDAURA</h1>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="instructions.html">Instructions</a>
+            <a href="results.html">View Results</a>
+        </nav>
+        <div class="game-container">
+            <img id="game-image" src alt="Logo" />
+            <form id="answer-form">
+                <input
+                    type="text"
+                    id="user-input"
+                    placeholder="Enter your answer."
+                    required />
+                <button id="submit-button" type="submit">Submit</button>
+            </form>
+            <div id="score-counter">Score: 0</div>
+        </div>
+        <script src="../js/app.js"></script>
+    </body>
 </html>

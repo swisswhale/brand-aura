@@ -1,0 +1,44 @@
+{
+  "automotive": [
+    {
+      "image": "../assets/images/automotive/acura.png",
+      "answer": "acura"
+    },
+    {
+      "image": "../assets/images/automotive/bentley.png",
+      "answer": "bentley"
+    },
+    {
+      "image": "../assets/images/automotive/bmw.png",
+      "answer": "bmw"
+    },
+    {
+      "image": "../assets/images/automotive/cadillac.png",
+      "answer": "cadillac"
+    },
+    {
+      "image": "../assets/images/automotive/chevrolet.png",
+      "answer": "chevrolet"
+    },
+    {
+      "image": "../assets/images/automotive/ferrari.png",
+      "answer": "ferrari"
+    },
+    {
+      "image": "../assets/images/automotive/lamborghini.png",
+      "answer": "lamborghini"
+    },
+    {
+      "image": "../assets/images/automotive/lexus.png",
+      "answer": "lexus"
+    },
+    {
+      "image": "../assets/images/automotive/porsche.png",
+      "answer": "porsche"
+    },
+    {
+      "image": "../assets/images/automotive/volvo.png",
+      "answer": "volvo"
+    }
+  ]
+}
